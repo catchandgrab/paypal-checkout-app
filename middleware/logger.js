@@ -1,0 +1,17 @@
+/* eslint-disable linebreak-style */
+/* eslint-disable eol-last */
+/* eslint-disable indent */
+/* eslint-disable linebreak-style */
+const moment = require('moment');
+
+const logger = (req, res, next) => {
+    // eslint-disable-next-line no-console
+    console.log(
+        `${req.protocol}://${req.get('host')}${
+      req.originalUrl
+    }: ${moment().format()}`,
+    );
+    next();
+};
+
+module.exports = logger;
